@@ -1,14 +1,11 @@
 
+##TODO: 4 classes Livro user emprestimo e biblioteca
+##TODO: herança - aluno / professor
+##TODO: metodo - emprestar livro / devolver livro listar emprestimos
+##TODO: regra - não emprestar livros indisponiveis
+
 
 from dataclasses import dataclass
-
-
-@dataclass
-class Cliente:
-    nome: str
-    livrosAlugados: [str]
-    idade: int
-    isMale: bool
 
 @dataclass
 class Book:
@@ -17,6 +14,14 @@ class Book:
     year: int
     genre: str
     pages: int
+    isRented: bool
+
+@dataclass
+class Cliente:
+    nome: str
+    livrosAlugados: [Book]
+    idade: int
+    isMale: bool
 
 book1 = Book( ##aqui foi criado o livro
     title="1984",
