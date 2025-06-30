@@ -2,6 +2,14 @@
 
 from dataclasses import dataclass
 
+
+@dataclass
+class Cliente:
+    nome: str
+    livrosAlugados: [str]
+    idade: int
+    isMale: bool
+
 @dataclass
 class Book:
     title: str
@@ -10,7 +18,7 @@ class Book:
     genre: str
     pages: int
 
-book1 = Book(
+book1 = Book( ##aqui foi criado o livro
     title="1984",
     author="George Orwell",
     year=1949,
