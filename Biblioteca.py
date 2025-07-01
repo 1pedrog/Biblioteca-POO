@@ -5,31 +5,36 @@
 ##TODO: regra - não emprestar livros indisponiveis
 
 
-from dataclasses import dataclass
-
-@dataclass
 class Book:
-    title: str
-    author: str
-    year: int
-    genre: str
-    pages: int
-    isRented: bool
+    def __init__(self, title, author, year, genre, pages, isRented):
+        self.title = title
+        self.author = author
+        self.year = year
+        self.genre = genre
+        self.pages = pages
+        self.isRented = isRented
 
-@dataclass
 class Cliente:
-    nome: str
-    livrosAlugados: [Book]
-    idade: int
-    isMale: bool
+    def __init__(self, nome, livrosAlugados, idade, isMale):
+        self.nome = nome
+        self.livrosAlugados = livrosAlugados  # Lista de objetos Book
+        self.idade = idade
+        self.isMale = isMale
 
 book1 = Book( ##aqui foi criado o livro
     title="1984",
     author="George Orwell",
     year=1949,
     genre="Dystopian",
-    pages=328
+    pages=328,
+    isRented=False
+)
+client1 = Cliente( ##aqui foi criado o cliente
+    nome="João Silva",
+    livrosAlugados=[],
+    idade=30,
+    isMale=True
 )
 
-print(book1)
-print(f"{book1.title} foi escrito por {book1.author} em {book1.year}.")
+print(f"Gênero: {book1.genre}, Páginas: {book1.pages}, Disponível: {not book1.isRented}")
+print(f"Cliente: {client1.nome}, Idade: {client1.idade}, Gênero: {'Masculino' if client1.isMale else 'Feminino'}")
