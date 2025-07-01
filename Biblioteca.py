@@ -5,6 +5,7 @@
 ##TODO: regra - não emprestar livros indisponiveis
 
 
+#Criação da classe Book
 class Book:
     def __init__(self, title, author, year, genre, pages, isRented):
         self.title = title
