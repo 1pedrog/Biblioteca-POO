@@ -15,6 +15,7 @@ class Book:
         self.pages = pages
         self.isRented = isRented
 
+#Criação da classe Cliente
 class Cliente:
     def __init__(self, nome, livrosAlugados, idade, isMale):
         self.nome = nome
