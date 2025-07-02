@@ -4,6 +4,12 @@
 ##TODO: metodo - emprestar livro / devolver livro listar emprestimos
 ##TODO: regra - não emprestar livros indisponiveis
 
+#Criação da classe Biblioteca
+class Biblioteca:
+    def __init__(self, name, address, idBiblioteca):
+        self.name = name
+        self.address = address
+        self.idBiblioteca = idBiblioteca
 
 #Criação da classe Book
 class Book:
@@ -23,6 +29,11 @@ class Cliente:
         self.idade = idade
         self.isMale = isMale
 
+biblioteca1 = Biblioteca(
+    name="Paulo Freire",
+    address="R. Dona Leopoldina, 907",
+    idBiblioteca="123"
+)
 book1 = Book( ##aqui foi criado o livro
     title="1984",
     author="George Orwell",
@@ -40,3 +51,4 @@ client1 = Cliente( ##aqui foi criado o cliente
 
 print(f"Gênero: {book1.genre}, Páginas: {book1.pages}, Disponível: {not book1.isRented}")
 print(f"Cliente: {client1.nome}, Idade: {client1.idade}, Gênero: {'Masculino' if client1.isMale else 'Feminino'}")
+print(f"Biblioteca: {biblioteca1.name}, Endereço: {biblioteca1.address}, ID: {biblioteca1.idBiblioteca}")
