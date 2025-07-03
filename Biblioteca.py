@@ -1,8 +1,9 @@
-
 ##TODO: 4 classes Livro user emprestimo e biblioteca
 ##TODO: herança - aluno / professor
 ##TODO: metodo - emprestar livro / devolver livro listar emprestimos
 ##TODO: regra - não emprestar livros indisponiveis
+
+from organizar_biblioteca import escolher_biblioteca
 
 #Criação da classe Book
 class Book:
@@ -22,17 +23,6 @@ class Cliente:
         self.idade = idade
         self.isMale = isMale
 
-#Lista com 5 Bibliotecas
-dados_bibliotecas = [
-    ("Biblioteca Paulo Freire", "Rua Dona Leopoldina, 907", 1),
-    ("Biblioteca Dolor Barreira", "Avenida da Universidade, 2572", 2),
-    ("Biblioteca Engenheiro Waldyr Diogo de Siqueira", "Avenida Treze de Maio, 2081", 3),
-    ("Biblioteca Professor Ari de Sá Cavalcante", "Avenida da Universidade, 2700", 4),
-    ("Biblioteca Rachel de Queiroz", "Rua Gen. Clarindo de Queiroz, 1740", 5),
-]
-#Adiciona as informações da lista à classe Biblioteca
-bibliotecas = [Biblioteca(name, address, idBiblioteca) for name, address, idBiblioteca in dados_bibliotecas]
-
 book1 = Book( ##aqui foi criado o livro
     title="1984",
     author="George Orwell",
@@ -50,3 +40,7 @@ client1 = Cliente( ##aqui foi criado o cliente
 
 print(f"Gênero: {book1.genre}, Páginas: {book1.pages}, Disponível: {not book1.isRented}")
 print(f"Cliente: {client1.nome}, Idade: {client1.idade}, Gênero: {'Masculino' if client1.isMale else 'Feminino'}")
+#Puxa a função para escolher a biblioteca
+biblioteca_escolhida = escolher_biblioteca()
+#if biblioteca_escolhida.idBiblioteca: #Puxando a função de login
+#   usuario = login_user()
