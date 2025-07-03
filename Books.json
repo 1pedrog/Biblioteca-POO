@@ -1,0 +1,142 @@
+[
+  {
+    "isbn": "978-0-123456-01-0",
+    "title": "The Great Adventure",
+    "author": "John Doe",
+    "copies": 3,
+    "genre": "FICTION"
+  },
+  {
+    "isbn": "978-0-123456-02-7",
+    "title": "Science Explained",
+    "author": "Jane Smith",
+    "copies": 5,
+    "genre": "SCIENCE_FICTION"
+  },
+  {
+    "isbn": "978-0-123456-03-4",
+    "title": "Mystery of the Old House",
+    "author": "Alice Johnson",
+    "copies": 2,
+    "genre": "MYSTERY"
+  },
+  {
+    "isbn": "978-0-123456-04-1",
+    "title": "History of the World",
+    "author": "Robert Brown",
+    "copies": 4,
+    "genre": "HISTORY"
+  },
+  {
+    "isbn": "978-0-123456-05-8",
+    "title": "Biography of a Genius",
+    "author": "Mary White",
+    "copies": 1,
+    "genre": "BIOGRAPHY"
+  },
+  {
+    "isbn": "978-0-123456-06-5",
+    "title": "The Children's Guide to Nature",
+    "author": "Emma Green",
+    "copies": 6,
+    "genre": "CHILDREN"
+  },
+  {
+    "isbn": "978-0-123456-07-2",
+    "title": "Fantasy Worlds",
+    "author": "Liam Black",
+    "copies": 7,
+    "genre": "FANTASY"
+  },
+  {
+    "isbn": "978-0-123456-08-9",
+    "title": "Nonfictional Truths",
+    "author": "Olivia Grey",
+    "copies": 3,
+    "genre": "NONFICTION"
+  },
+  {
+    "isbn": "978-0-123456-09-6",
+    "title": "Journey through Space",
+    "author": "Ethan Blue",
+    "copies": 4,
+    "genre": "SCIENCE_FICTION"
+  },
+  {
+    "isbn": "978-0-123456-10-2",
+    "title": "Tales from the Unknown",
+    "author": "Isabella Violet",
+    "copies": 2,
+    "genre": "MYSTERY"
+  },
+  {
+    "isbn": "978-0-123456-11-9",
+    "title": "A History of Art",
+    "author": "Sophia Orange",
+    "copies": 5,
+    "genre": "HISTORY"
+  },
+  {
+    "isbn": "978-0-123456-12-6",
+    "title": "Memoirs of a Traveler",
+    "author": "James Red",
+    "copies": 3,
+    "genre": "BIOGRAPHY"
+  },
+  {
+    "isbn": "978-0-123456-13-3",
+    "title": "Adventures in Magic",
+    "author": "Mia Silver",
+    "copies": 4,
+    "genre": "FANTASY"
+  },
+  {
+    "isbn": "978-0-123456-14-0",
+    "title": "The Science of Everything",
+    "author": "Noah Gold",
+    "copies": 8,
+    "genre": "NONFICTION"
+  },
+  {
+    "isbn": "978-0-123456-15-7",
+    "title": "Children's Stories",
+    "author": "Ava Pink",
+    "copies": 9,
+    "genre": "CHILDREN"
+  },
+  {
+    "isbn": "978-0-123456-16-4",
+    "title": "Fictional Realms",
+    "author": "William Indigo",
+    "copies": 3,
+    "genre": "FICTION"
+  },
+  {
+    "isbn": "978-0-123456-17-1",
+    "title": "Mystery Island",
+    "author": "Ella Brown",
+    "copies": 6,
+    "genre": "MYSTERY"
+  },
+  {
+    "isbn": "978-0-123456-18-8",
+    "title": "History of Science",
+    "author": "Benjamin White",
+    "copies": 2,
+    "genre": "HISTORY"
+  },
+  {
+    "isbn": "978-0-123456-19-5",
+    "title": "Biography: The Unknown",
+    "author": "Charlotte Black",
+    "copies": 1,
+    "genre": "BIOGRAPHY"
+  },
+  {
+    "isbn": "978-0-123456-20-1",
+    "title": "Fantasy Tales",
+    "author": "Henry Silver",
+    "copies": 5,
+    "genre": "FANTASY"
+  }
+]
