@@ -4,17 +4,6 @@
 ##TODO: metodo - emprestar livro / devolver livro listar emprestimos
 ##TODO: regra - não emprestar livros indisponiveis
 
-#Criação da classe Biblioteca
-class Biblioteca:
-    def __init__(self, name, address, idBiblioteca):
-        self.name = name
-        self.address = address
-        self.idBiblioteca = idBiblioteca
-    def exibir(self): #Metodo para exibir as informações das Bibliotecas
-        print("-" * 50)
-        print(f"Biblioteca: {self.name}\nEndereço: {self.address}\nID: {self.idBiblioteca}")
-        print("-" * 50)
-
 #Criação da classe Book
 class Book:
     def __init__(self, title, author, year, genre, pages, isRented):
@@ -61,22 +50,3 @@ client1 = Cliente( ##aqui foi criado o cliente
 
 print(f"Gênero: {book1.genre}, Páginas: {book1.pages}, Disponível: {not book1.isRented}")
 print(f"Cliente: {client1.nome}, Idade: {client1.idade}, Gênero: {'Masculino' if client1.isMale else 'Feminino'}")
-
-#Seletor de Bibliotecas
-print("Bibliotecas disponíveis:")
-for b in bibliotecas:
-    print(f"ID - {b.idBiblioteca}: {b.name}") #Mostra todas Bibliotecas e seus IDs
-loop= True #Loop para continuar pedindo um ID existente
-while loop==True:
-    id_escolhido = int(input("Digite o ID da Biblioteca que deseja acessar: ")) #Cliente escolhe a Biblioteca pelo ID
-    bibliotecaEncontrada= False #Define um padrão para quando o ID escolhido não existir
-    for b in bibliotecas:
-        #Se o ID existir
-        if b.idBiblioteca == id_escolhido:
-            b.exibir() #Exibe os dados da Biblioteca escolhida
-            bibliotecaEncontrada = True
-            loop = False #Fim do loop
-            break
-    #Se o ID não existir
-    if not bibliotecaEncontrada:
-        print("Biblioteca não Encontrada") #Loop continuará até o ID digitado existir
