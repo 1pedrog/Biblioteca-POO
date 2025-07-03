@@ -73,7 +73,8 @@ def show_book(vm: BookViewModel):
 
 
 # -------------------- Main --------------------
-def main():
+
+def start_book_search():
     livros_vm = BookViewModel.load_from_json('Books.json')
 
     print("\n### Lista de livros:")
@@ -83,10 +84,9 @@ def main():
     while True:
         isbn_input = input("\nDigite o ISBN do livro que deseja alugar (ou 'sair' para encerrar): ").strip()
         if isbn_input.lower() == 'sair':
-            print("Encerrando programa...")
+            print("Encerrando busca de livros...")
             break
 
-        # Busca o livro pelo ISBN
         livro_encontrado = None
         for vm in livros_vm:
             if vm.book.isbn == isbn_input:
@@ -97,15 +97,9 @@ def main():
             print(f"❌ Livro com ISBN '{isbn_input}' não encontrado. Tente novamente.")
             continue
 
-        # Tenta alugar o livro
         if livro_encontrado.rent():
             print(f"✅ Livro '{livro_encontrado.book.title}' alugado com sucesso!")
         else:
             print(f"❌ Livro '{livro_encontrado.book.title}' está indisponível para aluguel.")
 
-        # Mostra o status atualizado do livro
         show_book(livro_encontrado)
-
-
-if __name__ == "__main__":
-    main()
