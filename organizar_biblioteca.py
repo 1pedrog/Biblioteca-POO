@@ -21,24 +21,25 @@ dados_bibliotecas = [
 bibliotecas = [Biblioteca(name, address, idBiblioteca) for name, address, idBiblioteca in dados_bibliotecas]
 
 #Seletor de Bibliotecas
-print("Bibliotecas disponíveis:")
-for b in bibliotecas:
-    print(f"ID - {b.idBiblioteca}: {b.name}") #Mostra todas Bibliotecas e seus IDs
-loop= True #Loop para continuar pedindo um ID existente
-while loop==True:
-    try:
-        id_escolhido = int(input("Digite o ID da Biblioteca que deseja acessar: "))  # Cliente escolhe a Biblioteca pelo ID
-    except ValueError:
-        print("Entrada inválida. Digite apenas números.") #Mensagem de erro caso cliente digite algo que não seja número
-        continue
-    bibliotecaEncontrada= False #Define um padrão para quando o ID escolhido não existir
-    for b in bibliotecas:
-        #Se o ID existir
-        if b.idBiblioteca == id_escolhido:
-            b.exibir() #Exibe os dados da Biblioteca escolhida
-            bibliotecaEncontrada = True
-            loop = False #Fim do loop
-            break
-    #Se o ID não existir
-    if not bibliotecaEncontrada:
-        print("Biblioteca não Encontrada") #Loop continuará até o ID digitado existir
+def escolher_biblioteca():
+    print("Bibliotecas disponíveis:")
+    for biblioteca in bibliotecas:
+        print(f"ID - {biblioteca.idBiblioteca}: {biblioteca.name}") #Mostra todas Bibliotecas e seus IDs
+    loop= True #Loop para continuar pedindo um ID existente
+    while loop==True:
+        try:
+            id_escolhido = int(input("Digite o ID da Biblioteca que deseja acessar: "))  # Cliente escolhe a Biblioteca pelo ID
+        except ValueError:
+            print("Entrada inválida. Digite apenas números.") #Mensagem de erro caso cliente digite algo que não seja número
+            continue
+        bibliotecaEncontrada= False #Define um padrão para quando o ID escolhido não existir
+        for biblioteca in bibliotecas:
+            #Se o ID existir
+            if biblioteca.idBiblioteca == id_escolhido:
+                biblioteca.exibir() #Exibe os dados da Biblioteca escolhida
+                bibliotecaEncontrada = True
+                loop = False #Fim do loop
+                return biblioteca
+        #Se o ID não existir
+        if not bibliotecaEncontrada:
+            print("Biblioteca não Encontrada") #Loop continuará até o ID digitado existir
