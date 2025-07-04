@@ -88,6 +88,3 @@ def login():
                 return Professor2.user_id
             else:
                 print("\n❌ Código ou senha incorretos.")
-
-
-current_id = login()
