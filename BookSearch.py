@@ -63,6 +63,10 @@ class BookViewModel:
             books_vm.append(BookViewModel(book))
         return books_vm
 
+    @staticmethod
+    def filter_by_genre(book_view_models: list['BookViewModel'], genre: Genre) -> list['BookViewModel']:
+        return [vm for vm in book_view_models if vm.book.genre == genre]
+
 
 # -------------------- View --------------------
 def show_book(vm: BookViewModel):
@@ -82,10 +86,35 @@ def start_book_search():
         show_book(vm)
 
     while True:
-        isbn_input = input("\nDigite o ISBN do livro que deseja alugar (ou 'sair' para encerrar): ").strip()
+        isbn_input = input(
+            "\nDigite o ISBN do livro que deseja alugar,\nou digite 'filtros' para buscar por gênero (ou 'sair' para encerrar): ").strip()
+
         if isbn_input.lower() == 'sair':
             print("Encerrando busca de livros...")
             break
+
+        if isbn_input.lower() == 'filtros':
+            print("\n🎯 Gêneros disponíveis:")
+            for genre in Genre:
+                print(f"- {genre.name.title()}")
+
+            genero_input = input("Digite o nome do gênero desejado: ").strip().upper()
+
+            # Tenta encontrar o gênero digitado
+            genero_enum = next((g for g in Genre if g.name == genero_input), None)
+
+            if genero_enum is None:
+                print("❌ Gênero inválido.")
+            else:
+                livros_filtrados = BookViewModel.filter_by_genre(livros_vm, genero_enum)
+                if not livros_filtrados:
+                    print("⚠️ Nenhum livro encontrado para esse gênero.")
+                else:
+                    print(f"\n📚 Livros do gênero {genero_enum.name.title()}:")
+                    for vm in livros_filtrados:
+                        show_book(vm)
+
+            continue  # <-- IMPORTANTE: Impede que vá para a verificação de ISBN
 
         livro_encontrado = None
         for vm in livros_vm:
