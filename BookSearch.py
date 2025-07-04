@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum, auto
+from Users_Login import Professor
 import json
 
 # -------------------- Model --------------------
@@ -78,7 +79,7 @@ def show_book(vm: BookViewModel):
 
 # -------------------- Main --------------------
 
-def start_book_search():
+def start_book_search(usuario):
     livros_vm = BookViewModel.load_from_json('Books.json')
 
     print("\n### Lista de livros:")
@@ -126,9 +127,16 @@ def start_book_search():
             print(f"❌ Livro com ISBN '{isbn_input}' não encontrado. Tente novamente.")
             continue
 
-        if livro_encontrado.rent():
-            print(f"✅ Livro '{livro_encontrado.book.title}' alugado com sucesso!")
+        # Verifica limite de empréstimos
+        limite_aluguel = 5 if isinstance(usuario, Professor) else 1
+
+        if len(usuario.rentedBooks) >= limite_aluguel:
+            print(f"❌ Limite de empréstimos atingido. Você só pode alugar até {limite_aluguel} livro(s).")
         else:
-            print(f"❌ Livro '{livro_encontrado.book.title}' está indisponível para aluguel.")
+            if livro_encontrado.rent():
+                print(f"✅ Livro '{livro_encontrado.book.title}' alugado com sucesso!")
+                usuario.rentedBooks.append(livro_encontrado.book)
+            else:
+                print(f"❌ Livro '{livro_encontrado.book.title}' está indisponível para aluguel.")
 
         show_book(livro_encontrado)

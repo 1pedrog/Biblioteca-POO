@@ -70,10 +70,10 @@ def login():
 
             if AcademicRecord == Estudante1.academicRecord and Password == Estudante1.password:
                 print("\n✅ Login efetuado!")
-                return Estudante1.user_id
+                return Estudante1
             elif AcademicRecord == Estudante2.academicRecord and Password == Estudante2.password:
                 print("\n✅ Login efetuado!")
-                return Estudante2.user_id
+                return Estudante2
             else:
                 print("\n❌ RA ou senha incorretos.")
 
@@ -85,9 +85,9 @@ def login():
 
             if Code == Professor1.code and Password == Professor1.password:
                 print("\n✅ Login efetuado!")
-                return Professor1.user_id
+                return Professor1
             elif Code == Professor2.code and Password == Professor2.password:
                 print("\n✅ Login efetuado!")
-                return Professor2.user_id
+                return Professor2
             else:
                 print("\n❌ Código ou senha incorretos.")
