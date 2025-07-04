@@ -1,3 +1,4 @@
+
 ##TODO: 4 classes Livro user emprestimo e biblioteca
 ##TODO: herança - aluno / professor
 ##TODO: metodo - emprestar livro / devolver livro listar emprestimos
@@ -5,10 +6,13 @@
 
 from organizar_biblioteca import escolher_biblioteca
 from BookSearch import start_book_search
+from Users_Login import login
 
 def main():
     biblioteca = escolher_biblioteca()
     print(f"\nVocê escolheu a biblioteca: {biblioteca.name}")
+
+    current_id = login()
 
     start_book_search()
 
