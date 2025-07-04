@@ -10,7 +10,6 @@ from Users_Login import login
 
 def main():
     biblioteca = escolher_biblioteca()
-    print(f"\nVocê escolheu a biblioteca: {biblioteca.name}")
 
     current_id = login()
 

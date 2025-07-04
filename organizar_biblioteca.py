@@ -5,9 +5,10 @@ class Biblioteca:
         self.address = address
         self.idBiblioteca = id_biblioteca
     def exibir(self): #Metodo para exibir as informações das Bibliotecas
-        print("-" * 50)
+        print("\n✅ Biblioteca escolhida:")
+        print("━━━━━━━━━━━━━━━━" * 4)
         print(f"Biblioteca: {self.name}\nEndereço: {self.address}\nID: {self.idBiblioteca}")
-        print("-" * 50)
+        print("━━━━━━━━━━━━━━━━" * 4)
 
 #Lista com 5 Bibliotecas
 dados_bibliotecas = [
@@ -22,7 +23,7 @@ bibliotecas = [Biblioteca(name, address, idBiblioteca) for name, address, idBibl
 
 #Seletor de Bibliotecas
 def escolher_biblioteca():
-    print("Bibliotecas disponíveis:")
+    print("✅ Bibliotecas disponíveis:")
     for biblioteca in bibliotecas:
         print(f"ID - {biblioteca.idBiblioteca}: {biblioteca.name}") #Mostra todas Bibliotecas e seus IDs
     loop= True #Loop para continuar pedindo um ID existente
@@ -30,7 +31,7 @@ def escolher_biblioteca():
         try:
             id_escolhido = int(input("Digite o ID da Biblioteca que deseja acessar: "))  # Cliente escolhe a Biblioteca pelo ID
         except ValueError:
-            print("Entrada inválida. Digite apenas números.") #Mensagem de erro caso cliente digite algo que não seja número
+            print("❌ Entrada inválida. Digite apenas números.") #Mensagem de erro caso cliente digite algo que não seja número
             continue
         biblioteca_encontrada= False #Define um padrão para quando o ID escolhido não existir
         for biblioteca in bibliotecas:
@@ -42,4 +43,4 @@ def escolher_biblioteca():
                 return biblioteca
         #Se o ID não existir
         if not biblioteca_encontrada:
-            print("Biblioteca não Encontrada") #Loop continuará até o ID digitado existir
+            print("❌ Biblioteca não Encontrada") #Loop continuará até o ID digitado existir
