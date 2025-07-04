@@ -1,9 +1,9 @@
 #Criação da classe Biblioteca
 class Biblioteca:
-    def __init__(self, name, address, idBiblioteca):
+    def __init__(self, name, address, id_biblioteca):
         self.name = name
         self.address = address
-        self.idBiblioteca = idBiblioteca
+        self.idBiblioteca = id_biblioteca
     def exibir(self): #Metodo para exibir as informações das Bibliotecas
         print("-" * 50)
         print(f"Biblioteca: {self.name}\nEndereço: {self.address}\nID: {self.idBiblioteca}")
@@ -26,20 +26,20 @@ def escolher_biblioteca():
     for biblioteca in bibliotecas:
         print(f"ID - {biblioteca.idBiblioteca}: {biblioteca.name}") #Mostra todas Bibliotecas e seus IDs
     loop= True #Loop para continuar pedindo um ID existente
-    while loop==True:
+    while loop:
         try:
             id_escolhido = int(input("Digite o ID da Biblioteca que deseja acessar: "))  # Cliente escolhe a Biblioteca pelo ID
         except ValueError:
             print("Entrada inválida. Digite apenas números.") #Mensagem de erro caso cliente digite algo que não seja número
             continue
-        bibliotecaEncontrada= False #Define um padrão para quando o ID escolhido não existir
+        biblioteca_encontrada= False #Define um padrão para quando o ID escolhido não existir
         for biblioteca in bibliotecas:
             #Se o ID existir
             if biblioteca.idBiblioteca == id_escolhido:
                 biblioteca.exibir() #Exibe os dados da Biblioteca escolhida
-                bibliotecaEncontrada = True
+                biblioteca_encontrada = True
                 loop = False #Fim do loop
                 return biblioteca
         #Se o ID não existir
-        if not bibliotecaEncontrada:
+        if not biblioteca_encontrada:
             print("Biblioteca não Encontrada") #Loop continuará até o ID digitado existir
