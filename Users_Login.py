@@ -68,9 +68,12 @@ def login():
             AcademicRecord = input("Digite seu registro acadêmico (13 caracteres):\n")
             Password = input("Digite a senha:\n")
 
-            if (AcademicRecord == Estudante1.academicRecord and Password == Estudante1.password) or (AcademicRecord == Estudante2.academicRecord and Password == Estudante2.password):
+            if AcademicRecord == Estudante1.academicRecord and Password == Estudante1.password:
                 print("\n✅ Login efetuado!")
-                break
+                return Estudante1.user_id
+            elif AcademicRecord == Estudante2.academicRecord and Password == Estudante2.password:
+                print("\n✅ Login efetuado!")
+                return Estudante2.user_id
             else:
                 print("\n❌ RA ou senha incorretos.")
 
