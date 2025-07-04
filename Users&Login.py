@@ -17,6 +17,7 @@ class Professor(Client):
         super().__init__(user_id, password, rentedBooks)
         self.code = code
 
+# ------- criação dos usuarios -------
 
 Estudante1 = Student(
     user_id=1,
@@ -45,3 +46,48 @@ Professor2 = Professor(
     password="seila",
     rentedBooks=[]
 )
+
+def login():
+
+    # menu para saber a classe
+    option = 0
+
+    while option != 1 and option != 2:
+        print("\ndigite sua ocupação:")
+        print("1. Aluno")
+        print("2. Professor")
+        option = int(input())
+        if option != 1 and option != 2:
+            print("❌ Valor inválido!")
+        else:
+            print("✅ Ocupação selecionada!")
+
+    if option == 1: # se a opção for aluno
+
+        while True:
+            AcademicRecord = input("Digite seu registro acadêmico (13 caracteres):\n")
+            Password = input("Digite a senha:\n")
+
+            if (AcademicRecord == Estudante1.academicRecord and Password == Estudante1.password) or (AcademicRecord == Estudante2.academicRecord and Password == Estudante2.password):
+                print("\n✅ Login efetuado!")
+                break
+            else:
+                print("\n❌ RA ou senha incorretos.")
+
+    if option == 2: # se a opção for professor
+
+        while True:
+            Code = input("Digite seu código (4 caracteres):\n")
+            Password = input("Digite a senha:\n")
+
+            if Code == Professor1.code and Password == Professor1.password:
+                print("\n✅ Login efetuado!")
+                return Professor1.user_id
+            elif Code == Professor2.code and Password == Professor2.password:
+                print("\n✅ Login efetuado!")
+                return Professor2.user_id
+            else:
+                print("\n❌ Código ou senha incorretos.")
+
+
+current_id = login()
