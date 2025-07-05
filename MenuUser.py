@@ -20,7 +20,8 @@ def menu_user(usuario):
         print(f"\nBem-vindo, o que você deseja fazer?")
         print("1 - Alugar um livro")
         print("2 - Ver sua situação")
-        print("3 - Sair")
+        print("3 - Devolver livro")
+        print("4 - Sair do app")
 
         try:
             op = int(input("Digite a opção: "))

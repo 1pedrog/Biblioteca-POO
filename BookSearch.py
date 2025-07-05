@@ -46,6 +46,9 @@ class BookViewModel:
         else:
             return False
 
+    def return_book(self):  # ✅ ADICIONE ISSO
+        self.book.copies += 1
+
     @staticmethod
     def load_from_json(file_path: str) -> list['BookViewModel']:
         with open(file_path, 'r', encoding='utf-8') as f:

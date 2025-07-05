@@ -10,6 +10,7 @@ from organizar_biblioteca import escolher_biblioteca
 from Users_Login import login
 from MenuUser import menu_user, mostrar_situacao
 from BookSearch import start_book_search
+from BookReturn import start_book_return
 
 def main():
     biblioteca = escolher_biblioteca()
@@ -17,12 +18,13 @@ def main():
 
     while True:
         op = menu_user(usuario)
-
         if op == 1:
             start_book_search(usuario)
         elif op == 2:
             mostrar_situacao(usuario)
         elif op == 3:
+            start_book_return(usuario)
+        elif op == 4:
             print("Encerrando sessão...")
             break
         else:
