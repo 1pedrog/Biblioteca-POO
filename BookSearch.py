@@ -1,6 +1,7 @@
+from Users_Login import Professor
+
 from dataclasses import dataclass
 from enum import Enum, auto
-from Users_Login import Professor
 import json
 
 # -------------------- Model --------------------
@@ -79,8 +80,7 @@ def show_book(vm: BookViewModel):
 
 # -------------------- Main --------------------
 
-def start_book_search(usuario):
-    livros_vm = BookViewModel.load_from_json('Books.json')
+def start_book_search(usuario, livros_vm: list['BookViewModel']):
 
     print("\n### Lista de livros:")
     for vm in livros_vm:
@@ -102,6 +102,7 @@ def start_book_search(usuario):
             genero_input = input("Digite o nome do gênero desejado: ").strip().upper()
 
             # Tenta encontrar o gênero digitado
+
             genero_enum = next((g for g in Genre if g.name == genero_input), None)
 
             if genero_enum is None:
@@ -127,16 +128,55 @@ def start_book_search(usuario):
             print(f"❌ Livro com ISBN '{isbn_input}' não encontrado. Tente novamente.")
             continue
 
-        # Verifica limite de empréstimos
+        # verifica limite de empréstimos
         limite_aluguel = 5 if isinstance(usuario, Professor) else 1
 
         if len(usuario.rentedBooks) >= limite_aluguel:
             print(f"❌ Limite de empréstimos atingido. Você só pode alugar até {limite_aluguel} livro(s).")
+            return
         else:
             if livro_encontrado.rent():
-                print(f"✅ Livro '{livro_encontrado.book.title}' alugado com sucesso!")
+                print(f"✅✅ Livro '{livro_encontrado.book.title}' alugado com sucesso!")
                 usuario.rentedBooks.append(livro_encontrado.book)
             else:
-                print(f"❌ Livro '{livro_encontrado.book.title}' está indisponível para aluguel.")
+                print(f"❌❌ Livro '{livro_encontrado.book.title}' está indisponível para aluguel.")
 
         show_book(livro_encontrado)
+
+# -------------------- Devolução de Livros --------------------
+
+def devolver_livro(usuario, livros_vm: list['BookViewModel']):
+
+    if not usuario.rentedBooks:  # Se a lista de livros alugados estiver vazia
+        print("❌ Você não alugou nenhum livro.\n")
+        return
+
+    # exibe os livros que o usuário pode devolver
+    print("\nEstes são os seus livros alugados. Digite o ISBN do livro que deseja devolver:")
+    for aluguel in usuario.rentedBooks:
+        print("\n📘 Livro:")
+        print(f"ISBN: {aluguel.isbn}")
+        print(f"{aluguel.title} by {aluguel.author} ({aluguel.genre.name})")
+
+    # pede o isbn e remove espaços em branco extras
+    selected_isbn = input("\nISBN para devolução: ").strip()
+
+    livro_para_devolver = None
+
+    # acha e marca o livro selecionado
+    for aluguel in usuario.rentedBooks:
+        if aluguel.isbn == selected_isbn:
+            livro_para_devolver = aluguel
+            break
+
+    if livro_para_devolver:
+        # encontra o livro na lista principal (livros_vm) para atualizar as cópias
+        livro_original_vm = next((vm for vm in livros_vm if vm.book.isbn == selected_isbn), None)
+
+        if livro_original_vm:
+            livro_original_vm.book.copies += 1  # Incrementa as cópias no objeto principal
+
+        usuario.rentedBooks.remove(livro_para_devolver)  # Remove da lista do usuário
+        print(f"\n✅ Livro '{livro_para_devolver.title}' devolvido com sucesso!\n")
+    else:
+        print("\n❌ ISBN não encontrado. Verifique se digitou corretamente.\n")

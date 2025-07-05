@@ -1,3 +1,4 @@
+
 from Users_Login import Professor, Student
 
 def mostrar_situacao(usuario):
@@ -20,7 +21,8 @@ def menu_user(usuario):
         print(f"\nBem-vindo, o que você deseja fazer?")
         print("1 - Alugar um livro")
         print("2 - Ver sua situação")
-        print("3 - Sair")
+        print("3 - Devolver um livro")
+        print("4 - Sair")
 
         try:
             op = int(input("Digite a opção: "))
