@@ -1,3 +1,4 @@
+
 #Criação da classe Biblioteca
 class Biblioteca:
     def __init__(self, name, address, id_biblioteca):
