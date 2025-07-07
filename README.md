@@ -34,3 +34,6 @@ Logins e Senhas:
  - Código: 5678
  - Senha: seila
 
+# Documentação Completa
+https://www.notion.so/Trabalho-POO-21b54d5e8010805298b2c156df0c67be
+ - Notion com a documentação inteira do projeto e sprint de trabalho
