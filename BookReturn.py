@@ -22,7 +22,7 @@ def start_book_return(usuario):
         print("❌ ISBN não encontrado na sua lista de empréstimos.")
         return
 
-    # Cria um ViewModel temporário para chamar o método return_book
+    # Cria um ViewModel temporário para chamar o metodo return_book
     vm = BookViewModel(livro_para_devolver)
     vm.return_book()
     usuario.rentedBooks.remove(livro_para_devolver)

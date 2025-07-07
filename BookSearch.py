@@ -46,7 +46,7 @@ class BookViewModel:
         else:
             return False
 
-    def return_book(self):  # ✅ ADICIONE ISSO
+    def return_book(self):
         self.book.copies += 1
 
     @staticmethod
@@ -118,7 +118,7 @@ def start_book_search(usuario):
                     for vm in livros_filtrados:
                         show_book(vm)
 
-            continue  # <-- IMPORTANTE: Impede que vá para a verificação de ISBN
+            continue  # O continue mpede que vá para a verificação de ISBN
 
         livro_encontrado = None
         for vm in livros_vm:
