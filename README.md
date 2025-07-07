@@ -20,3 +20,17 @@ Regras de negócio:
  - Um livro só pode ser alugado se houver exemplares disponíveis.
  - A interface permanece ativa até o usuário optar por sair.
 
+Logins e Senhas:
+ - Estudante 1:
+  - Registro Acadêmico: 20242015020220
+  - Senha: tantofaz
+ - Estudante 2:
+  - Registro Acadêmico: 20242015020123
+  - Senha: qualquercoisa
+ - Professor 1:
+  - Código: 1234
+  - Senha: senha
+ - Professor 2:
+  - Código: 5678
+  - Senha: seila
+
