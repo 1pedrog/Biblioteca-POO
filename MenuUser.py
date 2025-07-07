@@ -1,21 +1,21 @@
-from Users_Login import Professor, Student
+from Users_Login import Professor
 
 def mostrar_situacao(usuario):
     print(f"\n📚 Livros alugados por {usuario.__class__.__name__} ID {usuario.user_id}:")
 
-    if not usuario.rentedBooks:
+    if not usuario.rentedBooks: #Se o usuário não alugou nenhum livro
         print("Nenhum livro alugado.")
-    else:
-        for livro in usuario.rentedBooks:
-            print(f"- {livro.title} por {livro.author}")
+    else: #Se ele tiver alugado algum livro
+        for livro in usuario.rentedBooks: #Busca os livros alugados
+            print(f"- {livro.title} por {livro.author}") #Mostra os livros alugados
 
-    if isinstance(usuario, Professor):
+    if isinstance(usuario, Professor): #Se o usuário for um professor
         livros_restantes = 5 - len(usuario.rentedBooks)
-        print(f"📖 Ainda pode alugar {livros_restantes} livro(s).")
+        print(f"📖 Ainda pode alugar {livros_restantes} livro(s).") #Mostra quantos livros ele ainda pode alugar
 
 
 def menu_user(usuario):
-    while True:
+    while True: #Enquanto o programa rodar
         op = 0
         print(f"\nBem-vindo, o que você deseja fazer?")
         print("1 - Alugar um livro")
@@ -24,7 +24,7 @@ def menu_user(usuario):
         print("4 - Sair do app")
 
         try:
-            op = int(input("Digite a opção: "))
+            op = int(input("Digite a opção: ")) #Repete a função se a opção digitada não for um número
         except ValueError:
             print("Entrada inválida. Apenas números aceitos.")
             continue

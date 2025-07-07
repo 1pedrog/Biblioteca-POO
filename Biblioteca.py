@@ -13,20 +13,20 @@ from BookSearch import start_book_search
 from BookReturn import start_book_return
 
 def main():
-    biblioteca = escolher_biblioteca()
-    usuario = login()
+    biblioteca = escolher_biblioteca() #Chama a função do seletor de bibliotecas
+    usuario = login() #Chama a função de login do usuário
 
-    while True:
-        op = menu_user(usuario)
+    while True: #Enquanto o usuário existir
+        op = menu_user(usuario) #Chama a função de menu e admite seu valor para op
         if op == 1:
-            start_book_search(usuario)
+            start_book_search(usuario) #Se 1 for digitado, chama a função de busca de livros
         elif op == 2:
-            mostrar_situacao(usuario)
+            mostrar_situacao(usuario) #Se 2 for digitado, chama a função que mostra a situação do usuário
         elif op == 3:
-            start_book_return(usuario)
+            start_book_return(usuario) #Se 3 for digitado, chama a função para devolver um livro
         elif op == 4:
             print("Encerrando sessão...")
-            break
+            break #Se 4 for digitado, encerra o programa
         else:
             print("❌ Ação Inválida")
 
