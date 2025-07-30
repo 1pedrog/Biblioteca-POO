@@ -82,8 +82,8 @@ def show_book(vm: BookViewModel):
 
 # -------------------- Main --------------------
 
-def start_book_search(usuario):
-    livros_vm = BookViewModel.load_from_json('Books.json')
+def start_book_search(usuario, livros_vm):
+    #livros_vm = BookViewModel.load_from_json('Books.json')
 
     print("\n### Lista de livros:")
     for vm in livros_vm:

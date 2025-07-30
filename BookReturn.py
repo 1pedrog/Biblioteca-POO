@@ -1,7 +1,7 @@
 
 from BookSearch import BookViewModel, show_book
 
-def start_book_return(usuario):
+def start_book_return(usuario, livros_vm):
     if not usuario.rentedBooks:
         print("\n❌ Você não possui livros para devolver.")
         return
@@ -23,7 +23,10 @@ def start_book_return(usuario):
         return
 
     # Cria um ViewModel temporário para chamar o metodo return_book
-    vm = BookViewModel(livro_para_devolver)
+    vm = next((v for v in livros_vm if v.book.isbn == livro_para_devolver.isbn), None)
+    if vm is None:
+        print("⚠️ Erro interno: livro não encontrado nos dados carregados.")
+        return
     vm.return_book()
     usuario.rentedBooks.remove(livro_para_devolver)
 
