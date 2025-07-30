@@ -1,23 +1,23 @@
-# inicialização da classe principal Client
+# definição da classe principal Client
 class Client:
     def __init__(self, user_id, password, rentedBooks):
         self.user_id = user_id  #int
         self.password = password # str - minimo 6 caracteres  # str
         self.rentedBooks = rentedBooks  # int
 
-# inicialização da subclasse estudante
+# definição da subclasse estudante
 class Student(Client):
     def __init__(self, user_id, password, rentedBooks, academicRecord):
         super().__init__(user_id, password, rentedBooks)
         self.academicRecord = academicRecord
 
-# inicialização da subclasse professor
+# definição da subclasse professor
 class Professor(Client):
     def __init__(self, user_id, password, rentedBooks, code):
         super().__init__(user_id, password, rentedBooks)
         self.code = code
 
-# ------- criação dos usuarios -------
+# ------- inicialização dos usuarios -------
 
 Estudante1 = Student(
     user_id=1,
@@ -53,14 +53,18 @@ def login():
     option = 0
 
     while option != 1 and option != 2:
-        print("\ndigite sua ocupação:")
-        print("1. Aluno")
-        print("2. Professor")
-        option = int(input())
-        if option != 1 and option != 2:
+        # Tratamento de erros para valores diferentes de 1 e 2.
+        try:
+            print("\ndigite sua ocupação:")
+            print("1. Aluno")
+            print("2. Professor")
+            option = int(input())
+            if option != 1 and option != 2:
+                print("❌ Valor inválido!")
+            else:
+                print("✅ Ocupação selecionada!")
+        except ValueError:
             print("❌ Valor inválido!")
-        else:
-            print("✅ Ocupação selecionada!")
 
     if option == 1: # se a opção for aluno
 
@@ -75,7 +79,7 @@ def login():
                 print("\n✅ Login efetuado!")
                 return Estudante2
             else:
-                print("\n❌ RA ou senha incorretos.")
+                print("\n❌ RA ou senha incorretos.\n")
 
     if option == 2: # se a opção for professor
 
@@ -90,4 +94,4 @@ def login():
                 print("\n✅ Login efetuado!")
                 return Professor2
             else:
-                print("\n❌ Código ou senha incorretos.")
+                print("\n❌ Código ou senha incorretos.\n")
