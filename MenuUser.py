@@ -23,7 +23,7 @@ def menu_user(usuario):
         print("3 - Devolver livro")
         print("4 - Sair do app")
 
-        try:
+        try: #Exceção criada para caso o cliente digite algo que não seja um número inteiro.
             op = int(input("Digite a opção: ")) #Repete a função se a opção digitada não for um número
         except ValueError:
             print("Entrada inválida. Apenas números aceitos.")

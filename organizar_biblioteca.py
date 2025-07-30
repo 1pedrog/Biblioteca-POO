@@ -28,7 +28,7 @@ def escolher_biblioteca():
         print(f"ID - {biblioteca.idBiblioteca}: {biblioteca.name}") #Mostra todas Bibliotecas e seus IDs
     loop= True #Loop para continuar pedindo um ID existente
     while loop:
-        try:
+        try: #Exceção criada para caso o cliente digite algo que não seja um número inteiro
             id_escolhido = int(input("Digite o ID da Biblioteca que deseja acessar: "))  # Cliente escolhe a Biblioteca pelo ID
         except ValueError:
             print("❌ Entrada inválida. Digite apenas números.") #Mensagem de erro caso cliente digite algo que não seja número
